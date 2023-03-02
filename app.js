@@ -19,7 +19,7 @@ const heroes = [
 const boss = {
     health: 100,
     maxHealth: 100,
-    damage: 5,
+    damage: 25,// this dmg is 5
     level: 1
 }
 
@@ -39,7 +39,7 @@ function attackBoss() {
 
 function hurtBoss(damage) {
     //find the boss
-    //reduce boss health by attack amout
+    //reduce boss health by attack amount
     //redraw boss
     if (boss.health > 0) {
         boss.health -= damage
@@ -49,6 +49,20 @@ function hurtBoss(damage) {
     // console.log(boss)
 }
 
+function attackPlayers() {
+    let target = Math.floor(Math.random() * heroes.length)
+    let hurtHero = heroes[target]
+    hurtHero.health -= boss.damage
+    if (heroes.every(hero => hero.health <= 0)) {
+        window.prompt("You Suuuuuuuuuuck!!! Get good kid")
+    }
+
+
+    console.log(hurtHero)
+    // console.log(target)
+}
+//REVIEW - uncomment this you foooooooool
+// setInterval(attackPlayers, 5000)
 
 
 
