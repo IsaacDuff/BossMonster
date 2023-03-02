@@ -1,0 +1,12 @@
+.heroimg {
+    background-image: url(https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.bossimg {
+    background-image: url(https://images.pexels.com/photos/886051/pexels-photo-886051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: center;
+    background-size: cover;
+}
