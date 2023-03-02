@@ -22,11 +22,12 @@ const boss = {
     health: 100,
     maxHealth: 100,
     damage: 5,
-    Gold: 1000,
+    gold: 1000,
     level: 1
 }
 
 let attack = 0
+let gold = 0
 
 function attackBoss() {
     heroes.forEach(h => {
@@ -50,9 +51,11 @@ function hurtBoss(damage) {
     }
     if (boss.health < 0) boss.health = 0
     if (boss.health == 0) {
+        gold += boss.gold
         bossLevelUp()
         playerLevelUp()
     }
+    console.log(gold)
     console.log(boss)
 }
 
