@@ -1,4 +1,4 @@
-console.log('al;kdjfklasdjdfaskjdf;lk');
+// console.log('al;kdjfklasdjdfaskjdf;lk');
 
 const heroes = [
     {
