@@ -49,12 +49,14 @@ function hurtBoss(damage) {
         boss.health -= damage
 
     }
+    updateBoss()
     if (boss.health < 0) boss.health = 0
     if (boss.health == 0) {
         gold += boss.gold
         bossLevelUp()
         playerLevelUp()
     }
+    updateBoss()
     console.log(gold)
     console.log(boss)
 }
@@ -67,6 +69,7 @@ function bossLevelUp() {
     boss.level++
     boss.gold = (boss.gold * 2)
     console.log(boss)
+    updateBoss()
 }
 
 function playerLevelUp() {
@@ -77,8 +80,30 @@ function playerLevelUp() {
             heroes.forEach(p => p.level++)
         }
     })
+    updatePlayers('Slate Slabrock')
+    updatePlayers('Flint Ironstag')
+    // console.log(heroes)
+}
 
-    console.log(heroes)
+function updatePlayers(name) {
+    let hero = heroes.find(h => h.name == name)
+    console.log('hero', hero);
+    let heroElem = document.getElementById(hero.name)
+    let statsView = heroElem.querySelector('.stats')
+    statsView.innerHTML = `
+    <p>HP: ${hero.health}</p>
+    <p>Level: ${hero.level}</p>
+    `
+}
+
+function updateBoss() {
+    let bossElem = document.getElementById(boss)
+    let statsView = bossElem.querySelector('.stats')
+    statsView.innerHTML = `
+    <h3>Boss Health: ${boss.health}</h3>
+    <h3>Reward: $${boss.gold}</h3>
+    <h3>Level: ${boss.level}</h3>
+    `
 }
 
 
@@ -87,6 +112,9 @@ function attackPlayers() {
     let target = Math.floor(Math.random() * heroes.length)
     let hurtHero = heroes[target]
     hurtHero.health -= boss.damage
+
+    updatePlayers('Slate Slabrock')
+    updatePlayers('Flint Ironstag')
 
     if (heroes.every(hero => hero.health <= 0)) {
         window.alert("You Suuuuuuuuuuck!!! Get good kid")
@@ -98,6 +126,10 @@ function attackPlayers() {
 }
 //REVIEW - uncomment this you foooooooool
 // setInterval(attackPlayers, 2000)
+
+updatePlayers('Slate Slabrock')
+updatePlayers('Flint Ironstag')
+updateBoss()
 
 
 
