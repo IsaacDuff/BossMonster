@@ -68,8 +68,9 @@ function bossLevelUp() {
     boss.damage += 10
     boss.level++
     boss.gold = (boss.gold * 2)
-    console.log(boss)
     updateBoss()
+    console.log(boss)
+
 }
 
 function playerLevelUp() {
@@ -97,7 +98,7 @@ function updatePlayers(name) {
 }
 
 function updateBoss() {
-    let bossElem = document.getElementById(boss)
+    let bossElem = document.getElementById('boss')
     let statsView = bossElem.querySelector('.stats')
     statsView.innerHTML = `
     <h3>Boss Health: ${boss.health}</h3>
@@ -125,7 +126,7 @@ function attackPlayers() {
     // console.log(target)
 }
 //REVIEW - uncomment this you foooooooool
-// setInterval(attackPlayers, 2000)
+setInterval(attackPlayers, 5000)
 
 updatePlayers('Slate Slabrock')
 updatePlayers('Flint Ironstag')
